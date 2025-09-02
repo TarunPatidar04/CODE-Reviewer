@@ -93,7 +93,6 @@ and the ✅ Recommended Fix section = same code with small refinements.
 `
 
   });
-  console.log(response.text);
   return response.text;
 }
 
