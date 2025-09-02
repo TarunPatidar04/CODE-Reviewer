@@ -23,15 +23,15 @@ function App() {
       setReview("⚠️ Please enter some code before requesting a review.");
       return;
     }
-
+    const apiUrl = import.meta.env.VITE_API_URL;
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/ai/get-review", {
+      const response = await axios.post(`${apiUrl}/ai/get-review`, {
         code,
       });
       setReview(response.data);
     } catch (err) {
-      setReview("❌ Error fetching review",err.message);
+      setReview("❌ Error fetching review", err.message);
     } finally {
       setLoading(false);
     }
@@ -92,3 +92,5 @@ function App() {
 }
 
 export default App;
+
+// console.log("first", apiUrl);
